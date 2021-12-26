@@ -17,13 +17,13 @@ function [L,U] =factorisation(A)
                 r=r+L(i,k)*U(k,j);
                 
             end
-            L(i,j)=A(i,j)-r
+            L(i,j)=A(i,j)-r 
         end
      U(j,j)=1;
      for i=(j+1):n
          r=0.0;
        for k=1:(j-1)
-           r=r+L(j,k)+U(k,i);
+           r=r+L(j,k)*U(k,i);
        end
        U(j,i)=(A(j,i)-r)/L(j,j);                
     end
