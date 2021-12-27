@@ -29,3 +29,26 @@ function [L,U] =factorisation(A)
     end
     end
 endfunction
+t = zeros(10);
+x=zeros(10);
+d = [10:10:100];
+    for n = d
+    
+        i = n / 10;
+    
+        // Init matrix
+        A = rand(n, n);
+        
+        disp(A);
+        x(i)=n*n;
+        tic;
+        [L,U] =factorisation(A);
+        t(i) = toc();
+        
+    end
+
+   xtitle("Factorisation LU", "n", "time");
+plot(d, [t x]);
+legend(["Factorisation LU" "Complexité"], 2);
+xs2png(0, "./graphe/facto.png");
+clf();
