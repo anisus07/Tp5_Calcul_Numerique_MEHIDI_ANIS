@@ -7,3 +7,14 @@ for i=1:k
     end
 end
 endfunction
+
+function [x, erreur] = test_Richardson()
+    
+    A = [2 -1 0; -1 2 -1;0 -1 2]
+    b = [5;6;2]
+    x0 = zeros(3,1)
+    k = 50
+    [x] = Richardson(A,b,x0,k)
+    erreur = norm((A*x-b)/x)
+
+endfunction
