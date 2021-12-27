@@ -8,6 +8,22 @@
 void set_GB_operator_rowMajor_poisson1D(double* AB, int *lab, int *la){
 
   //TODO
+int ii_1,ii_2,ii_3,ii_4,ii_5,jj;
+  for (jj=0;jj<(*la);jj++){
+    ii_1=jj;
+    ii_2=(*la)+jj;
+    ii_3=2*(*la)+jj;
+    ii_4=3*(*la)+jj;
+
+
+    AB[ii_1]=0.0;
+    AB[ii_2]=-1.0;
+    AB[ii_3]=2.0;
+    AB[ii_4]=-1.0;
+
+  }
+  AB[*la]=0.0;
+  AB[4*(*la)-1]=0.0;
 }
 void set_GB_operator_colMajor_poisson1D(double* AB, int *lab, int *la, int *kv){
   int ii, jj, kk;
